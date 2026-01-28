@@ -1,0 +1,17 @@
+fastapi==0.109.0
+uvicorn==0.27.0
+python-dotenv==1.0.0
+google-generativeai>=0.3.0
+pillow==10.2.0
+sqlalchemy==2.0.25
+python-multipart==0.0.6
+apscheduler==3.10.4
+psycopg2-binary==2.9.9
+requests==2.31.0
+pywebpush==1.14.0
+py_vapid>=1.9.0
+chromadb>=0.4.0
+python-jose[cryptography]==3.3.0
+passlib==1.7.4
+email-validator>=2.0.0
+slowapi>=0.1.9

@@ -1,0 +1,4 @@
+2026-01-28 15:30:41 | INFO     | mediremind.api | New user registered: profile_test_v2@example.com
+2026-01-28 15:30:43 | INFO     | mediremind.auth | User authenticated successfully: profile_test_v2@example.com
+2026-01-28 15:30:43 | INFO     | mediremind.api | User logged in: profile_test_v2@example.com
+2026-01-28 15:30:47 | INFO     | mediremind.api | Updated profile for profile_test_v2@example.com

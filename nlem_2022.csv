@@ -1,0 +1,11 @@
+drug_name,category,schedule,indication,dosage_form
+Metformin,Antidiabetic,H,Type 2 Diabetes Mellitus,Tablet 500mg
+Amoxicillin,Antibiotic,H1,Bacterial infections,Capsule 250mg
+Paracetamol,Analgesic,OTC,Pain and Fever,Tablet 500mg
+Atorvastatin,Cardiovascular,H,High Cholesterol,Tablet 10mg
+Amlodipine,Cardiovascular,H,Hypertension (High BP),Tablet 5mg
+Omeprazole,Gastrointestinal,H,Acidity and Stomach Ulcers,Capsule 20mg
+Azithromycin,Antibiotic,H1,Respiratory tract infections,Tablet 500mg
+Insulin Glargine,Antidiabetic,H,Diabetes Mellitus,Injection 100IU
+Salbutamol,Respiratory,H,Asthma and COPD,Inhaler 100mcg
+Ibuprofen,Analgesic,H,Pain and Inflammation,Tablet 400mg

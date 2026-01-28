@@ -1,0 +1,164 @@
+{
+    "version": "1.0.0",
+    "contracts": {
+        "health_risk_prediction": {
+            "request": {
+                "title": "HealthDataRequest",
+                "type": "object",
+                "properties": {
+                    "age": {
+                        "type": "integer",
+                        "description": "Patient age in years"
+                    },
+                    "gender": {
+                        "type": "string",
+                        "enum": [
+                            "Male",
+                            "Female",
+                            "Other"
+                        ]
+                    },
+                    "systolicBP": {
+                        "type": "integer",
+                        "description": "Systolic Blood Pressure (mmHg)"
+                    },
+                    "diastolicBP": {
+                        "type": "integer",
+                        "description": "Diastolic Blood Pressure (mmHg)"
+                    },
+                    "heartRate": {
+                        "type": "integer",
+                        "description": "Resting Heart Rate (bpm)"
+                    },
+                    "weight": {
+                        "type": "number",
+                        "description": "Weight in kg"
+                    },
+                    "height": {
+                        "type": "number",
+                        "description": "Height in cm"
+                    },
+                    "smokingStatus": {
+                        "type": "string",
+                        "enum": [
+                            "Never",
+                            "Former",
+                            "Current"
+                        ]
+                    },
+                    "diabetesStatus": {
+                        "type": "string",
+                        "enum": [
+                            "No",
+                            "Pre-diabetic",
+                            "Type 1",
+                            "Type 2"
+                        ]
+                    },
+                    "familyHistory": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "currentMedications": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "recentSymptoms": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "age",
+                    "gender",
+                    "systolicBP",
+                    "diastolicBP",
+                    "weight",
+                    "height"
+                ]
+            },
+            "response": {
+                "title": "RiskPredictionResponse",
+                "type": "object",
+                "properties": {
+                    "riskScore": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 100
+                    },
+                    "riskCategory": {
+                        "type": "string",
+                        "enum": [
+                            "LOW",
+                            "MODERATE",
+                            "HIGH"
+                        ]
+                    },
+                    "contributingFactors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "recommendations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "riskScore",
+                    "riskCategory",
+                    "contributingFactors",
+                    "recommendations"
+                ]
+            }
+        },
+        "medication_ocr": {
+            "request": {
+                "title": "ImageRequest",
+                "type": "object",
+                "properties": {
+                    "image": {
+                        "type": "string",
+                        "description": "Base64 encoded image string"
+                    }
+                },
+                "required": [
+                    "image"
+                ]
+            },
+            "response": {
+                "title": "MedicationResponse",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "dosage": {
+                        "type": "string"
+                    },
+                    "frequency": {
+                        "type": "string"
+                    },
+                    "instructions": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name",
+                    "dosage",
+                    "frequency",
+                    "instructions"
+                ]
+            }
+        }
+    }
+}
