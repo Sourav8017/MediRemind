@@ -51,17 +51,21 @@ def setup_logger(
     
     # File Handler (rotating)
     if log_to_file:
-        LOG_DIR.mkdir(exist_ok=True)
-        file_path = LOG_DIR / (log_file or "app.log")
-        file_handler = RotatingFileHandler(
-            file_path,
-            maxBytes=5 * 1024 * 1024,  # 5 MB
-            backupCount=3,
-            encoding="utf-8"
-        )
-        file_handler.setLevel(level)
-        file_handler.setFormatter(logging.Formatter(LOG_FORMAT, DATE_FORMAT))
-        logger.addHandler(file_handler)
+        try:
+            LOG_DIR.mkdir(exist_ok=True)
+            file_path = LOG_DIR / (log_file or "app.log")
+            file_handler = RotatingFileHandler(
+                file_path,
+                maxBytes=5 * 1024 * 1024,  # 5 MB
+                backupCount=3,
+                encoding="utf-8"
+            )
+            file_handler.setLevel(level)
+            file_handler.setFormatter(logging.Formatter(LOG_FORMAT, DATE_FORMAT))
+            logger.addHandler(file_handler)
+        except (OSError, PermissionError) as e:
+            # Fallback to console only if file logging fails (e.g., Read-only FS)
+            sys.stderr.write(f"Warning: Failed to setup file logging: {e}\n")
     
     return logger
 

@@ -6,7 +6,7 @@ services:
     region: singapore # or oregon, frankfurt etc.
     plan: free
     buildCommand: pip install -r backend/requirements.txt
-    startCommand: cd backend && python worker.py & python -m uvicorn main:app --host 0.0.0.0 --port $PORT
+    startCommand: cd backend && python worker.py & uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
